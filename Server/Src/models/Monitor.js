@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const moniterSchema = mongoose.schema({
+const monitorSchema = mongoose.schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
@@ -45,3 +45,5 @@ const moniterSchema = mongoose.schema({
         index: true,
     }
 }, { timestamps: true });
+
+module.exports = mongoose.model("Monitor", monitorSchema);
