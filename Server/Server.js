@@ -4,8 +4,11 @@ const cors = require('cors')
 const notfoundMiddleware = require('./Src/Middleware/notFound.middleware')
 const errorHandlerMiddleware = require('./Src/Middleware/errorHandler.middleware')
 
+//Routes
+const userRoutes = require('./Src/Routes/User.routes.js')
 
 
+// const api = randomString(10)
 
 
 app.use(cors({
@@ -16,12 +19,15 @@ app.use(cors({
 app.use(notfoundMiddleware);
 app.use(errorHandlerMiddleware);
 
+
+//Routes
+
+app.use(`/api/reg`, userRoutes)
+app.use(`/api/log`, userRoutes)
+
+
 app.use(express.json())
 
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
 }   )
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
