@@ -1,6 +1,6 @@
-import { z } from 'zod';
+const { z } = require('zod');
 
-export const registerSchema = z.object({
+const registerSchema = z.object({
 
 body: z.object({
 
@@ -14,7 +14,7 @@ password: z.string().min(8, 'Min 8 characters').max(72),
 
 });
 
-export const loginSchema = z.object({
+const loginSchema = z.object({
 
 body: z.object({
 
@@ -25,3 +25,5 @@ password: z.string().min(1, 'Password is required'),
 }).strict(),
 
 });
+
+module.exports = { registerSchema, loginSchema };
